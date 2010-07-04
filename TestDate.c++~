@@ -81,6 +81,7 @@ struct TestDate : CppUnit::TestFixture {
     void test_days_constructor () {
         try {
             const Date<int> x(146155);
+            std::cout << "the day: " << x.get_day << "\n" << std::endl;
             CPPUNIT_ASSERT(x.get_day() == 28);
             CPPUNIT_ASSERT(x.get_month() == 2);
             CPPUNIT_ASSERT(x.get_year() == 2000);
@@ -133,9 +134,39 @@ struct TestDate : CppUnit::TestFixture {
 
     void test_to_days () {
       try {
-        const Date<int> x(1, 1, 1600);
-        int y = x.to_days();
-        CPPUNIT_ASSERT(y == 0);
+        const Date<int> x(28, 2, 2000);
+        int q = x.to_days();
+        CPPUNIT_ASSERT(q == 146155);
+        const Date<int> y(2, 4, 1918);
+        q = y.to_days();
+        CPPUNIT_ASSERT(q == 116238);
+        const Date<int> z(6, 12, 1777);
+        q = z.to_days();
+        CPPUNIT_ASSERT(q == 64988);
+        const Date<int> a(8, 9, 1703);
+        q = a.to_days();
+        CPPUNIT_ASSERT(q == 37870);
+        const Date<int> b(12, 8, 1600);
+        q = b.to_days();
+        CPPUNIT_ASSERT(q == 224);
+        const Date<int> c(28, 2, 1900);
+        q = c.to_days();
+        CPPUNIT_ASSERT(q == 109631);
+        const Date<int> d(31, 4, 1921);
+        q = d.to_days();
+        CPPUNIT_ASSERT(q == 117363);
+        const Date<int> e(16, 1, 1838);
+        q = e.to_days();
+        CPPUNIT_ASSERT(q == 86943);
+        const Date<int> f(8, 7, 1632);
+        q = f.to_days();
+        CPPUNIT_ASSERT(q == 11877);
+        const Date<int> g(21, 11, 1739);
+        q = g.to_days();
+        CPPUNIT_ASSERT(q == 51093);
+        const Date<int> h(31, 12, 1989);
+        q = h.to_days();
+        CPPUNIT_ASSERT(q == 142444);
       }
       catch (std::invalid_argument& e) {
         CPPUNIT_ASSERT(false);}}
@@ -179,6 +210,7 @@ struct TestDate : CppUnit::TestFixture {
         try {
             const Date<int> x(1, 1, 2000);
             const Date<int> y(1, 1, 2001);
+            std::cout << "plus\n" << std::endl;
             CPPUNIT_ASSERT(x + 366 == y);}
         catch (std::invalid_argument& e) {
             CPPUNIT_ASSERT(false);}}
@@ -191,7 +223,8 @@ struct TestDate : CppUnit::TestFixture {
         try {
             const Date<int> x(1, 1, 2000);
             const Date<int> y(1, 1, 2001);
-            CPPUNIT_ASSERT(y - 365 == x);}
+            std::cout << "minus\n" << std::endl;
+            CPPUNIT_ASSERT(y - 366 == x);}
         catch (std::invalid_argument& e) {
             CPPUNIT_ASSERT(false);}}
 

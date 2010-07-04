@@ -8,7 +8,7 @@ int main(){
 	const Date<int> x(146155);
             cout << (x.get_day() == 28) << endl;
             cout << (x.get_month() == 2)<< endl;
-            cout << (x.get_year() == 2000)<< endl;
+            cout << (x.get_year() == 2000)<< endl;/*
             const Date<int> y(116238);
             cout << (y.get_day() == 2)<< endl;
             cout << (y.get_month() == 4)<< endl;
@@ -48,5 +48,5 @@ int main(){
             const Date<int> h(142444);
             cout << (h.get_day() == 31)<< endl;
             cout << (h.get_month() == 12)<< endl;
-            cout << (h.get_year() == 1989)<< endl;
+            cout << (h.get_year() == 1989)<< endl;*/
 }

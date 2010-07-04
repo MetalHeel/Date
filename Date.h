@@ -59,7 +59,7 @@ class Date {
         // ----------
 
         /**
-         * <your documentation>
+         * adds rhs to the Date lhs.
          * @throws invalid_argument if the resulting date precedes 1 Jan 1600
          */
         friend Date operator + (Date lhs, const T& rhs) {
@@ -75,12 +75,14 @@ class Date {
         // ----------
 
         /**
-         * <your documentation>
+         * subtracts rhs from the Date lhs.
          * @throws invalid_argument if the resulting date precedes 1 Jan 1600
          */
         friend Date operator - (Date lhs, const T& rhs) {
           try{
-            const Date<int> result(lhs.get_days() - rhs);
+            int x = lhs.get_days() - rhs;
+            const Date<int> result(x);
+            std::cout << result.get_day() << "-" << result.get_month() << "-" << result.get_year() << std::endl;
             return result;
           }
           catch (std::invalid_argument& e) {throw;}
@@ -99,7 +101,7 @@ class Date {
          */
         friend std::ostream& operator << (std::ostream& lhs, const Date& rhs) {
             const std::string month_strings[] = {" ", "Jan", "Feb", "Mar", "April", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-            return lhs << rhs.get_day() <<" " << month_strings[rhs.get_month()] << " " << rhs.get_year();}
+            return lhs << rhs.get_day() << " " << month_strings[rhs.get_month()] << " " << rhs.get_year();}
 
     private:
         // ----
@@ -163,58 +165,28 @@ class Date {
             _day = 1;
             _month = 1;
             _year = 1600;
-            
-            int years = 1600;
-            while (d >= 365){
-             if( (years % 400 == 0) || (years % 4 == 0 && years % 100 != 0)){
-               d -= 366;
-               years++;}
+
+            int test = 366;
+            while (d >= test){
+              if((_year % 400 == 0) || (_year % 4 == 0 && _year % 100 != 0)){
+                d -= 366;
+                _year++;}
               else {
                 d -= 365;
-                years++;
-              }
-            }
-            _year = years;
-
-	    cout << "years acquired " << _year << endl;
-	    cout << "days left " << d << endl;
-            /**
-
-            int sent = 365;
-
-            if(leap_year())
-            {
-              sent = 366;
-              thisyear[2] = 29;
-            }
-
-            int counter = 0;
-
-            while(d > sent) {
-              if(leap_year()) {
                 _year++;
-                d = d - 366;
               }
-              else
-              {
-                _year++;
-                d = d - 365;Edit
-              }
+              test = (leap_year()) ? 366 : 365;
             }
-          **/
+
             while(d > thisyear[_month])
             {
               d = d - thisyear[_month];
               _month++;
             }
 
-	    cout << "months acquired " << _month << endl;
-	    cout << "days left " << d << endl;
+            if(!leap_year()) d++;
+            _day = d;
 
-	     if(!leap_year()) d++;
-             _day = d;
-
-          
             if (!valid())
                 throw std::invalid_argument("Date::Date()");}
 
@@ -227,16 +199,17 @@ class Date {
          * 1 Jan 1600 -> 0
          */
         T to_days () const {
-          const int begdays = 584388;
-          T days = (365 * _year) + (_year / 4) - (_year / 100) + (_year / 400);
+          //const int begdays = 584388;
+          int y = _year - 1600;
+          T days = (365 * y) + (y / 4) - (y / 100) + (y / 400);
           int thisyear[13] = {-1, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
           if(leap_year()) thisyear[2]++;
           for(int i = 1; i < _month; i++) days += thisyear[i];
           days += _day;
-          
+
           if(!leap_year())
             days++;
-          return days - begdays - 1;
+          return days - 1;
         }
 
     public:
@@ -268,24 +241,19 @@ class Date {
         // -----------
 
         /**
-         * <your documentation>
+         * checks if this Date is equal to the Date rhs.
          */
         bool operator == (const Date& rhs) const {
-
-
-
-
-            return get_days() == rhs.get_days();}
+          return get_days() == rhs.get_days();}
 
         // ----------
         // operator <
         // ----------
 
         /**
-         * <your documentation>
+         * checks if this date is less than the Date rhs.
          */
         bool operator < (const Date& rhs) const {
-            // <your code>
             return get_days() < rhs.get_days();}
 
         // -----------
@@ -293,7 +261,7 @@ class Date {
         // -----------
 
         /**
-         * <your documentation>
+         * adds days tho this Date and assigns the value to this Date.
          * @param  days the number of days to add (may be negative!)
          * @return the date resulting from adding days
          * @throws invalid_argument if the resulting date precedes 1 Jan 1600
@@ -310,7 +278,7 @@ class Date {
         // -----------
 
         /**
-         * <your documentation>
+         * subtracts days from this Date and assigns the value to this Date.
          * @param  days the number of days to subtract (may be negative!)
          * @return the date resulting from subtracting days
          * @throws invalid_argument if the resulting date precedes 1 Jan 1600
@@ -327,7 +295,7 @@ class Date {
         // ----------
 
         /**
-         * <your documentation>
+         * determines the number of days between this Date and the Date rhs.
          * @return the number of days between the dates (lhs - rhs)
          */
         T operator - (const Date& rhs) const {

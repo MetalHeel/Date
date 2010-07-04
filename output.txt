@@ -1,33 +1,37 @@
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
-1
+TestDate.c++
+...day: 1
+month: 1
+year: 2000
+days: 58
+
+F....day: 1
+month: 1
+year: 2001
+days: 0
+
+.minus
+
+day: 1
+month: 1
+year: 2000
+days: 0
+
+F..
+
+
+!!!FAILURES!!!
+Test Results:
+Run:  10   Failures: 2   Errors: 0
+
+
+1) test: TestDate::test_days_constructor (F) line: 84 TestDate.c++
+assertion failed
+- Expression: x.get_day() == 28
+
+
+2) test: TestDate::test_minus (F) line: 227 TestDate.c++
+assertion failed
+- Expression: false
+
+
+Done.
