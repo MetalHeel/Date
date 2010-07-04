@@ -59,7 +59,7 @@ class Date {
         // ----------
 
         /**
-         * <your documentation>
+         * add rhs to the lhs Date.
          * @throws invalid_argument if the resulting date precedes 1 Jan 1600
          */
         friend Date operator + (Date lhs, const T& rhs) {
@@ -75,7 +75,7 @@ class Date {
         // ----------
 
         /**
-         * <your documentation>
+         * take rhs away from the lhs Date.
          * @throws invalid_argument if the resulting date precedes 1 Jan 1600
          */
         friend Date operator - (Date lhs, const T& rhs) {
@@ -162,50 +162,28 @@ class Date {
             _day = 1;
             _month = 1;
             _year = 1600;
-            
+
             int years = 1600;
-            while (d >= 365){
-             if( (years % 400 == 0) || (years % 4 == 0 && years % 100 != 0)){
-               d -= 366;
-               years++;}
+            while (d > 365){
+              if((years % 400 == 0) || (years % 4 == 0 && years % 100 != 0)) {
+                d -= 366;
+              }
               else {
                 d -= 365;
-                years++;
               }
+
+              years++;
             }
             _year = years;
-            /**
 
-            int sent = 365;
-
-            if(leap_year())
-            {
-              sent = 366;
-              thisyear[2] = 29;
-            }
-
-            int counter = 0;
-
-            while(d > sent) {
-              if(leap_year()) {
-                _year++;
-                d = d - 366;
-              }
-              else
-              {
-                _year++;
-                d = d - 365;
-              }
-            }
-          **/
             while(d > thisyear[_month])
             {
               d = d - thisyear[_month];
               _month++;
             }
 
-            _day = d + 1;
-            std::cout << _day << " " << _month << " " << _year << std::endl;
+            if(_year > 1699) _day = d + 1;
+	    else _day = d;
           
             if (!valid())
                 throw std::invalid_argument("Date::Date()");}
@@ -226,7 +204,7 @@ class Date {
           for(int i = 1; i < _month; i++) days += thisyear[i];
           days += _day;
           
-          if(!leap_year)
+          if(!leap_year())
             days++;
           return days - begdays - 1;
         }
@@ -260,10 +238,13 @@ class Date {
         // -----------
 
         /**
-         * <your documentation>
+         * checks if this Date is equal to the rhs Date.
          */
         bool operator == (const Date& rhs) const {
-            std::cout<<get_days() <<" vs " << rhs.get_days()<<std::endl;
+
+
+
+
             return get_days() == rhs.get_days();}
 
         // ----------
@@ -271,7 +252,7 @@ class Date {
         // ----------
 
         /**
-         * <your documentation>
+         * checks if this Date is less than the rhs Date.
          */
         bool operator < (const Date& rhs) const {
             // <your code>
@@ -282,7 +263,7 @@ class Date {
         // -----------
 
         /**
-         * <your documentation>
+         * add days to this Date and assign the result to this Date.
          * @param  days the number of days to add (may be negative!)
          * @return the date resulting from adding days
          * @throws invalid_argument if the resulting date precedes 1 Jan 1600
@@ -299,7 +280,7 @@ class Date {
         // -----------
 
         /**
-         * <your documentation>
+         * take days away from this Date and assign the result to this Date.
          * @param  days the number of days to subtract (may be negative!)
          * @return the date resulting from subtracting days
          * @throws invalid_argument if the resulting date precedes 1 Jan 1600
@@ -316,7 +297,8 @@ class Date {
         // ----------
 
         /**
-         * <your documentation>
+         * take the number of days in the rhs Date from the number of days in this
+         * Date.
          * @return the number of days between the dates (lhs - rhs)
          */
         T operator - (const Date& rhs) const {

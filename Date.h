@@ -155,6 +155,7 @@ class Date {
          * you can loop through an array of month days
          */
         Date (const T& days) {
+	    using namespace std;
             assert(days >= 0);
             int thisyear[13] = {-1, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
             int d = days;
@@ -174,6 +175,9 @@ class Date {
               }
             }
             _year = years;
+
+	    cout << "years acquired " << _year << endl;
+	    cout << "days left " << d << endl;
             /**
 
             int sent = 365;
@@ -204,8 +208,12 @@ class Date {
               _month++;
             }
 
-            if(_year > 1699) _day = d + 1;
-	    else _day = d;
+	    cout << "months acquired " << _month << endl;
+	    cout << "days left " << d << endl;
+
+	     if(!leap_year()) d++;
+             _day = d;
+
           
             if (!valid())
                 throw std::invalid_argument("Date::Date()");}

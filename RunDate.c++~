@@ -38,8 +38,8 @@ int main(){
             cout << (e.get_month() == 1)<< endl;
             cout << (e.get_year() == 1838)<< endl;
             const Date<int> f(11877);
-            cout << (f.get_day() == 8)<< endl;
-            cout << (f.get_month() == 7)<< endl;
+            cout << (f.get_day() == 7)<< endl;
+            cout << (f.get_month() == 8)<< endl;
             cout << (f.get_year() == 1632)<< endl;
             const Date<int> g(51093);
             cout << (g.get_day() == 21)<< endl;

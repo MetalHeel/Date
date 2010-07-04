@@ -113,16 +113,16 @@ struct TestDate : CppUnit::TestFixture {
             CPPUNIT_ASSERT(e.get_month() == 1);
             CPPUNIT_ASSERT(e.get_year() == 1838);
             const Date<int> f(11877);
-            CPPUNIT_ASSERT(f.get_day() == 7);
-            CPPUNIT_ASSERT(f.get_month() == 8);
+            CPPUNIT_ASSERT(f.get_day() == 8);
+            CPPUNIT_ASSERT(f.get_month() == 7);
             CPPUNIT_ASSERT(f.get_year() == 1632);
             const Date<int> g(51093);
-            CPPUNIT_ASSERT(g.get_day() == 11);
-            CPPUNIT_ASSERT(g.get_month() == 21);
+            CPPUNIT_ASSERT(g.get_day() == 21);
+            CPPUNIT_ASSERT(g.get_month() == 11);
             CPPUNIT_ASSERT(g.get_year() == 1739);
             const Date<int> h(142444);
-            CPPUNIT_ASSERT(h.get_day() == 12);
-            CPPUNIT_ASSERT(h.get_month() == 31);
+            CPPUNIT_ASSERT(h.get_day() == 31);
+            CPPUNIT_ASSERT(h.get_month() == 12);
             CPPUNIT_ASSERT(h.get_year() == 1989);}
         catch (std::invalid_argument& e) {
             CPPUNIT_ASSERT(std::strcmp(e.what(), "Date::Date()") == 0);}}
