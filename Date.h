@@ -194,7 +194,7 @@ class Date {
               else
               {
                 _year++;
-                d = d - 365;
+                d = d - 365;Edit
               }
             }
           **/
@@ -204,8 +204,8 @@ class Date {
               _month++;
             }
 
-            _day = d + 1;
-            std::cout << _day << " " << _month << " " << _year << std::endl;
+            if(_year > 1699) _day = d + 1;
+	    else _day = d;
           
             if (!valid())
                 throw std::invalid_argument("Date::Date()");}
@@ -263,7 +263,10 @@ class Date {
          * <your documentation>
          */
         bool operator == (const Date& rhs) const {
-            std::cout<<get_days() <<" vs " << rhs.get_days()<<std::endl;
+
+
+
+
             return get_days() == rhs.get_days();}
 
         // ----------

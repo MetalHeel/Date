@@ -49,7 +49,28 @@ struct TestDate : CppUnit::TestFixture {
     void test_constructor () {
         try {
             const Date<int> x(1, 1, 1963);
-            CPPUNIT_ASSERT(x.get_days() == 132583);}
+            const Date<int> y(2, 4, 1918);
+            const Date<int> z(6, 12, 1777);
+            const Date<int> a(8, 9, 1703);
+            const Date<int> b(12, 8, 1600);
+            const Date<int> c(28, 2, 1900);
+            const Date<int> d(31, 4, 1921);
+            const Date<int> e(16, 1, 1838);
+            const Date<int> f(8, 7, 1632);
+            const Date<int> g(21, 11, 1739);
+            const Date<int> h(31, 12, 1989);
+            CPPUNIT_ASSERT(x.get_days() == 132583);
+            CPPUNIT_ASSERT(y.get_days() == 116238);
+            CPPUNIT_ASSERT(z.get_days() == 64988);
+            CPPUNIT_ASSERT(a.get_days() == 37870 );
+            CPPUNIT_ASSERT(b.get_days() ==  224);
+            CPPUNIT_ASSERT(c.get_days() ==  109631);
+            CPPUNIT_ASSERT(d.get_days() ==  117363);
+            CPPUNIT_ASSERT(e.get_days() ==  86943);
+            CPPUNIT_ASSERT(f.get_days() ==  11877);
+            CPPUNIT_ASSERT(g.get_days() ==  51093);
+            CPPUNIT_ASSERT(h.get_days() ==  142444);
+		}
         catch (std::invalid_argument& e) {
             CPPUNIT_ASSERT(std::strcmp(e.what(), "Date::Date()") == 0);}}
             
@@ -62,7 +83,47 @@ struct TestDate : CppUnit::TestFixture {
             const Date<int> x(146155);
             CPPUNIT_ASSERT(x.get_day() == 28);
             CPPUNIT_ASSERT(x.get_month() == 2);
-            CPPUNIT_ASSERT(x.get_year() == 2000);}
+            CPPUNIT_ASSERT(x.get_year() == 2000);
+            const Date<int> y(116238);
+            CPPUNIT_ASSERT(y.get_day() == 2);
+            CPPUNIT_ASSERT(y.get_month() == 4);
+            CPPUNIT_ASSERT(y.get_year() == 1918);
+            const Date<int> z(64988);
+            CPPUNIT_ASSERT(z.get_day() == 6);
+            CPPUNIT_ASSERT(z.get_month() == 12);
+            CPPUNIT_ASSERT(z.get_year() == 1777);
+            const Date<int> a(37870);
+            CPPUNIT_ASSERT(a.get_day() == 8);
+            CPPUNIT_ASSERT(a.get_month() == 9);
+            CPPUNIT_ASSERT(a.get_year() == 1703);
+            const Date<int> b(224);
+            CPPUNIT_ASSERT(b.get_day() == 12);
+            CPPUNIT_ASSERT(b.get_month() == 8);
+            CPPUNIT_ASSERT(b.get_year() == 1600);
+            const Date<int> c(109631);
+            CPPUNIT_ASSERT(c.get_day() == 28);
+            CPPUNIT_ASSERT(c.get_month() == 2);
+            CPPUNIT_ASSERT(c.get_year() == 1900);
+            const Date<int> d(117363);
+            CPPUNIT_ASSERT(d.get_day() == 31);
+            CPPUNIT_ASSERT(d.get_month() == 4);
+            CPPUNIT_ASSERT(d.get_year() == 1921);
+            const Date<int> e(86943);
+            CPPUNIT_ASSERT(e.get_day() == 16);
+            CPPUNIT_ASSERT(e.get_month() == 1);
+            CPPUNIT_ASSERT(e.get_year() == 1838);
+            const Date<int> f(11877);
+            CPPUNIT_ASSERT(f.get_day() == 7);
+            CPPUNIT_ASSERT(f.get_month() == 8);
+            CPPUNIT_ASSERT(f.get_year() == 1632);
+            const Date<int> g(51093);
+            CPPUNIT_ASSERT(g.get_day() == 11);
+            CPPUNIT_ASSERT(g.get_month() == 21);
+            CPPUNIT_ASSERT(g.get_year() == 1739);
+            const Date<int> h(142444);
+            CPPUNIT_ASSERT(h.get_day() == 12);
+            CPPUNIT_ASSERT(h.get_month() == 31);
+            CPPUNIT_ASSERT(h.get_year() == 1989);}
         catch (std::invalid_argument& e) {
             CPPUNIT_ASSERT(std::strcmp(e.what(), "Date::Date()") == 0);}}
 
@@ -189,3 +250,4 @@ int main () {
 
     cout << "Done." << endl;
     return 0;}
+
