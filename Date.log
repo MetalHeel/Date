@@ -1,0 +1,29 @@
+commit 0d495d33dacdeca2188e1565dd173d9413dd5ece
+Author: Bram <MetalHeel@aol.com>
+Date:   Sun Jul 4 04:22:13 2010 -0500
+
+    still got that bug
+
+commit 3dce54f870a0e545117e8fa33d044ec5a2c26053
+Author: Bram <MetalHeel@aol.com>
+Date:   Sat Jul 3 22:59:30 2010 -0500
+
+    Still working on the constructor bug...
+
+commit 8a302065f55adf2cc6e3b318e104e3d18263197d
+Author: Bram <MetalHeel@aol.com>
+Date:   Sat Jul 3 21:55:59 2010 -0500
+
+    Round 2, still a bug with constructor...
+
+commit 64e4df87a77680fcb13f39db59b30dea9f77264e
+Author: Bram <MetalHeel@aol.com>
+Date:   Thu Jul 1 19:40:06 2010 -0500
+
+    initial work...
+
+commit b5c087aa3dde89854e61f4e9fdaf34443adad172
+Author: Bram <MetalHeel@aol.com>
+Date:   Thu Jul 1 16:25:24 2010 -0500
+
+    test commit

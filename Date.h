@@ -82,7 +82,6 @@ class Date {
           try{
             int x = lhs.get_days() - rhs;
             const Date<int> result(x);
-            std::cout << result.get_day() << "-" << result.get_month() << "-" << result.get_year() << std::endl;
             return result;
           }
           catch (std::invalid_argument& e) {throw;}
@@ -178,14 +177,17 @@ class Date {
               test = (leap_year()) ? 366 : 365;
             }
 
+	    if(leap_year()) thisyear[2]++;
+
             while(d > thisyear[_month])
             {
               d = d - thisyear[_month];
               _month++;
             }
 
-            if(!leap_year()) d++;
-            _day = d;
+            d++;
+	    _day = d;
+
 
             if (!valid())
                 throw std::invalid_argument("Date::Date()");}
@@ -193,7 +195,7 @@ class Date {
         // -------
         // to_days
         // -------
-
+ 
         /**
          * @return the number of days since 1 Jan 1600, >= 0
          * 1 Jan 1600 -> 0
@@ -319,4 +321,5 @@ class Date {
               return false;}};
 
 #endif // Date_h
+
 

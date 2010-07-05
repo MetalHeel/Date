@@ -1,0 +1,182 @@
+\hypertarget{classDate}{
+\section{Date$<$ T $>$ Class Template Reference}
+\label{classDate}\index{Date@{Date}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classDate_abbb19de27d20c0e91798ebc77636acc1}{valid} () const 
+\item 
+\hypertarget{classDate_af7350744af66bd8e7ec9bf3f62934566}{
+T {\bfseries get\_\-day} () const }
+\label{classDate_af7350744af66bd8e7ec9bf3f62934566}
+
+\item 
+\hypertarget{classDate_af00b0ff782e14258699368e3e05c52ca}{
+T {\bfseries get\_\-month} () const }
+\label{classDate_af00b0ff782e14258699368e3e05c52ca}
+
+\item 
+\hypertarget{classDate_a5b3005aa2c19f33314261432d7f3d92a}{
+T {\bfseries get\_\-year} () const }
+\label{classDate_a5b3005aa2c19f33314261432d7f3d92a}
+
+\item 
+\hypertarget{classDate_a10864c03dcbc30d504fa33611a196e70}{
+T {\bfseries get\_\-days} () const }
+\label{classDate_a10864c03dcbc30d504fa33611a196e70}
+
+\item 
+\hyperlink{classDate_af957af1d1b2138d065fda5b555987fb8}{Date} (const T \&days)
+\item 
+T \hyperlink{classDate_a64620fd3e81930d15c7f9bc48ed4b92e}{to\_\-days} () const 
+\item 
+\hyperlink{classDate_a5531478f62a49470143266081c4fe83b}{Date} (const T \&day, const T \&month, const T \&year)
+\item 
+bool \hyperlink{classDate_a008a69648c7fa5998d2c5e712b73e6f3}{operator==} (const \hyperlink{classDate}{Date} \&rhs) const 
+\item 
+bool \hyperlink{classDate_ac633cf922af2965d5f22a229c0a51390}{operator$<$} (const \hyperlink{classDate}{Date} \&rhs) const 
+\item 
+\hyperlink{classDate}{Date} \& \hyperlink{classDate_a661f00c4979307ad8de12df28f4dccac}{operator+=} (const T \&days)
+\item 
+\hyperlink{classDate}{Date} \& \hyperlink{classDate_ad1b53baf96121981070652e0fd1aaaa4}{operator-\/=} (const T \&days)
+\item 
+T \hyperlink{classDate_a3691ee1370123a8ba506785bf2573433}{operator-\/} (const \hyperlink{classDate}{Date} \&rhs) const 
+\item 
+bool \hyperlink{classDate_ab69ff6d65cfc5e1c27fe6fed6e913236}{leap\_\-year} () const 
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDate}{Date} \hyperlink{classDate_a19ca6a1abad55481ddcf29a3e02d97cc}{operator+} (\hyperlink{classDate}{Date} lhs, const T \&rhs)
+\item 
+\hyperlink{classDate}{Date} \hyperlink{classDate_a4aa0e233f0db5fb3a64bbf90e3790a74}{operator-\/} (\hyperlink{classDate}{Date} lhs, const T \&rhs)
+\item 
+std::ostream \& \hyperlink{classDate_ab955963105d77485237321ecadaec058}{operator$<$$<$} (std::ostream \&lhs, const \hyperlink{classDate}{Date} \&rhs)
+\end{DoxyCompactItemize}
+\subsubsection*{template$<$typename T$>$ class Date$<$ T $>$}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classDate_af957af1d1b2138d065fda5b555987fb8}{
+\index{Date@{Date}!Date@{Date}}
+\index{Date@{Date}!Date@{Date}}
+\subsubsection[{Date}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Date}$<$ T $>$::{\bf Date} (const T \& {\em days})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classDate_af957af1d1b2138d065fda5b555987fb8}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em days}]$>$= 0 Date(0) -\/$>$ 1 Jan 1600 you can loop through an array of month days \end{DoxyParams}
+\hypertarget{classDate_a5531478f62a49470143266081c4fe83b}{
+\index{Date@{Date}!Date@{Date}}
+\index{Date@{Date}!Date@{Date}}
+\subsubsection[{Date}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Date}$<$ T $>$::{\bf Date} (const T \& {\em day}, \/  const T \& {\em month}, \/  const T \& {\em year})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classDate_a5531478f62a49470143266081c4fe83b}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em day}]$>$= 1 \&\& $<$= 31 \item[{\em month}]$>$= 1 \&\& $<$= 12 \item[{\em year}]$>$= 1600 \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em invalid\_\-argument}]if the resulting date is invalid \end{DoxyExceptions}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classDate_ab69ff6d65cfc5e1c27fe6fed6e913236}{
+\index{Date@{Date}!leap\_\-year@{leap\_\-year}}
+\index{leap\_\-year@{leap\_\-year}!Date@{Date}}
+\subsubsection[{leap\_\-year}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Date}$<$ T $>$::leap\_\-year () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classDate_ab69ff6d65cfc5e1c27fe6fed6e913236}
+checks if this year is a leap year or not. \hypertarget{classDate_a661f00c4979307ad8de12df28f4dccac}{
+\index{Date@{Date}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Date@{Date}}
+\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Date}\& {\bf Date}$<$ T $>$::operator+= (const T \& {\em days})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classDate_a661f00c4979307ad8de12df28f4dccac}
+adds days tho this \hyperlink{classDate}{Date} and assigns the value to this \hyperlink{classDate}{Date}. 
+\begin{DoxyParams}{Parameters}
+\item[{\em days}]the number of days to add (may be negative!) \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the date resulting from adding days 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em invalid\_\-argument}]if the resulting date precedes 1 Jan 1600 \end{DoxyExceptions}
+\hypertarget{classDate_a3691ee1370123a8ba506785bf2573433}{
+\index{Date@{Date}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Date@{Date}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T {\bf Date}$<$ T $>$::operator-\/ (const {\bf Date}$<$ T $>$ \& {\em rhs}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classDate_a3691ee1370123a8ba506785bf2573433}
+determines the number of days between this \hyperlink{classDate}{Date} and the \hyperlink{classDate}{Date} rhs. \begin{DoxyReturn}{Returns}
+the number of days between the dates (lhs -\/ rhs) 
+\end{DoxyReturn}
+\hypertarget{classDate_ad1b53baf96121981070652e0fd1aaaa4}{
+\index{Date@{Date}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Date@{Date}}
+\subsubsection[{operator-\/=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Date}\& {\bf Date}$<$ T $>$::operator-\/= (const T \& {\em days})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classDate_ad1b53baf96121981070652e0fd1aaaa4}
+subtracts days from this \hyperlink{classDate}{Date} and assigns the value to this \hyperlink{classDate}{Date}. 
+\begin{DoxyParams}{Parameters}
+\item[{\em days}]the number of days to subtract (may be negative!) \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the date resulting from subtracting days 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em invalid\_\-argument}]if the resulting date precedes 1 Jan 1600 \end{DoxyExceptions}
+\hypertarget{classDate_ac633cf922af2965d5f22a229c0a51390}{
+\index{Date@{Date}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Date@{Date}}
+\subsubsection[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Date}$<$ T $>$::operator$<$ (const {\bf Date}$<$ T $>$ \& {\em rhs}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classDate_ac633cf922af2965d5f22a229c0a51390}
+checks if this date is less than the \hyperlink{classDate}{Date} rhs. \hypertarget{classDate_a008a69648c7fa5998d2c5e712b73e6f3}{
+\index{Date@{Date}!operator==@{operator==}}
+\index{operator==@{operator==}!Date@{Date}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Date}$<$ T $>$::operator== (const {\bf Date}$<$ T $>$ \& {\em rhs}) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classDate_a008a69648c7fa5998d2c5e712b73e6f3}
+checks if this \hyperlink{classDate}{Date} is equal to the \hyperlink{classDate}{Date} rhs. \hypertarget{classDate_a64620fd3e81930d15c7f9bc48ed4b92e}{
+\index{Date@{Date}!to\_\-days@{to\_\-days}}
+\index{to\_\-days@{to\_\-days}!Date@{Date}}
+\subsubsection[{to\_\-days}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ T {\bf Date}$<$ T $>$::to\_\-days () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classDate_a64620fd3e81930d15c7f9bc48ed4b92e}
+\begin{DoxyReturn}{Returns}
+the number of days since 1 Jan 1600, $>$= 0 1 Jan 1600 -\/$>$ 0 
+\end{DoxyReturn}
+\hypertarget{classDate_abbb19de27d20c0e91798ebc77636acc1}{
+\index{Date@{Date}!valid@{valid}}
+\index{valid@{valid}!Date@{Date}}
+\subsubsection[{valid}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ bool {\bf Date}$<$ T $>$::valid () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classDate_abbb19de27d20c0e91798ebc77636acc1}
+checks if the current date is valid or not. 
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classDate_a19ca6a1abad55481ddcf29a3e02d97cc}{
+\index{Date@{Date}!operator+@{operator+}}
+\index{operator+@{operator+}!Date@{Date}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Date} operator+ ({\bf Date}$<$ T $>$ {\em lhs}, \/  const T \& {\em rhs})\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{classDate_a19ca6a1abad55481ddcf29a3e02d97cc}
+adds rhs to the \hyperlink{classDate}{Date} lhs. 
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em invalid\_\-argument}]if the resulting date precedes 1 Jan 1600 \end{DoxyExceptions}
+\hypertarget{classDate_a4aa0e233f0db5fb3a64bbf90e3790a74}{
+\index{Date@{Date}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Date@{Date}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ {\bf Date} operator-\/ ({\bf Date}$<$ T $>$ {\em lhs}, \/  const T \& {\em rhs})\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{classDate_a4aa0e233f0db5fb3a64bbf90e3790a74}
+subtracts rhs from the \hyperlink{classDate}{Date} lhs. 
+\begin{DoxyExceptions}{Exceptions}
+\item[{\em invalid\_\-argument}]if the resulting date precedes 1 Jan 1600 \end{DoxyExceptions}
+\hypertarget{classDate_ab955963105d77485237321ecadaec058}{
+\index{Date@{Date}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Date@{Date}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ std::ostream\& operator$<$$<$ (std::ostream \& {\em lhs}, \/  const {\bf Date}$<$ T $>$ \& {\em rhs})\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{classDate_ab955963105d77485237321ecadaec058}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em lhs}]an ostream \item[{\em rhs}]a date \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the ostream output a string representation of the date (e.g. \char`\"{}3 Feb 2008\char`\"{}) you can loop through an array of month names 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+Date.h\end{DoxyCompactItemize}
